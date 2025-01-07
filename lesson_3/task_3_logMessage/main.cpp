@@ -120,12 +120,27 @@ int main() {
     catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
+    try
+    {
+    fatalErrorHandler->handle(error);
 
-    errorHandler->handle(error);
-    warningHandler->handle(warning);
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    try
+    {
+    fatalErrorHandler->handle(warning);
+
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 
     try {
-        unknownMessageHandler->handle(unknown); 
+        fatalErrorHandler->handle(unknown);
     }
     catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
