@@ -56,7 +56,6 @@ public:
     }
 };
 
-// Функции для сохранения данных в различных форматах
 void saveToAsHTML(std::ofstream& file, const Data& data)
 {
     HTMLFormatter htmlFormatter;
